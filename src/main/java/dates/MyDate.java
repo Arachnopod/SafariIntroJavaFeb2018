@@ -1,41 +1,36 @@
 package dates;
 
+class BadDateException extends Exception {}
+
 public class MyDate {
-  int day;
-  int month;
-  int year;
+  private int day;
+  private int month;
+  private int year;
+
+  public MyDate(int day, int month, int year) throws BadDateException {
+    if (day < 1 || day > 31 || month < 1 || month > 12) {
+//      throw new IllegalArgumentException("Bad date values");
+      throw new BadDateException();
+    }
+    this.day = day;
+    this.month = month;
+    this.year = year;
+  }
 
   public void addOneDay() {
     this.day += 1;
+    // should handle wrap of month and year!
   }
+//
+//  public static void addOneDay(MyDate d) {
+//    d.day += 1;
+//    // if day wraps end of month, fix it!!!
+//
+//  }
 
-  public static void addOneDay(MyDate d) {
-    d.day += 1;
-    // if day wraps end of month, fix it!!!
-
-  }
-
-  public static void main(String[] args) {
-    MyDate d1 = new MyDate();
-    MyDate d2 = new MyDate();
-
-    d1.day = 12;
-    d1.month = 3;
-    d1.year = 1999;
-
-    d2.day = 24;
-    d2.month = 7;
-    d2.year = 2015;
-
-    System.out.println("day: " + d1.day
-        + " month: " + d1.month + " year: " + d1.year);
-
-    addOneDay(d1);
-    System.out.println("day: " + d1.day
-        + " month: " + d1.month + " year: " + d1.year);
-
-    d1.addOneDay();
-    System.out.println("day: " + d1.day
-        + " month: " + d1.month + " year: " + d1.year);
+  @Override
+  public String toString() {
+    return "day: " + this.day + " month: " + this.month
+        + " year: " + this.year;
   }
 }
