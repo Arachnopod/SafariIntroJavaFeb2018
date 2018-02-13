@@ -1,0 +1,9 @@
+Notes/References for Getting started with Java in 3 hours
+
+github repository
+
+https://github.com/SimonHGR/SafariIntroJavaFeb2018
+
+Safari class
+
+https://www.safaribooksonline.com/library/view/java-programming-basics/9780133975154/
